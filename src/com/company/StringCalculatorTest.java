@@ -47,6 +47,13 @@ public class StringCalculatorTest {
         int answer = strclc.Add(str);
         Assert.assertEquals(15,answer);
     }
+    @Test
+    public void Adddelimiter() {
+        StringCalculator strclc = new StringCalculator();
+        String str = "//;\\n1;2";
+        int answer = strclc.Add(str);
+        Assert.assertEquals(3,answer);
+    }
 }
 
 //Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme

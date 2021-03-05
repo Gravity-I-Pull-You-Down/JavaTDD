@@ -13,6 +13,8 @@ public class StringCalculator {
             return Integer.parseInt(number);
         else {
             int index =0,sum =0;
+            if(number.contains("//"))
+                index = 4;
             while(index<=number.length()){
                 sum += Integer.parseInt(String.valueOf(number.charAt( number.indexOf(',',index)+1)));
                 index+=2;
