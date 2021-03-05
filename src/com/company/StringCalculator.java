@@ -18,6 +18,9 @@ public class StringCalculator {
              }
             for (int i=0;i< vec.size();++i)
                 number = number.replaceAll(vec.get(i),",");
+            number = number.replaceAll("\n", ",");
+            number = number.replaceFirst(",","");
+
         }
         //Rest of stuff
         if (number.contains("//")) {
@@ -27,7 +30,6 @@ public class StringCalculator {
         }
         if (number.contains("\n")) {
             number = number.replaceAll("\n", ",");
-            number = number.replaceFirst(",","");
         }
 
         if (number.trim().length() == 0)
@@ -43,12 +45,12 @@ public class StringCalculator {
                     if (0 > Integer.parseInt(arr[i])) {
                         String s = "negatives not allowed " + arr[i];
                         ++flag;
-                        throw new NullPointerException(s);
+                        throw new NumberFormatException(s);
                     }
                     else if(Integer.parseInt(arr[i])<=1000){
                         sum += Integer.parseInt(arr[i]);
                     }
-                }catch (NullPointerException e){
+                }catch (NumberFormatException e){
                     System.out.println(e.toString());
                 }
             }
