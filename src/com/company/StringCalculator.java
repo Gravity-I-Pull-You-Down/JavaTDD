@@ -5,6 +5,13 @@ public class StringCalculator {
     public int Add(String number) throws Exception {
         ++count;
         int flag =0;
+        //Finding Delimiter
+        if(number.contains("//[")){
+            String delimiter = number.substring(number.indexOf("[")+1,number.indexOf("]"));
+            number = number.replaceAll(delimiter,",");
+            number = number.substring(5);
+        }
+        //Rest of stuff
         if (number.contains("//")) {
             int index = number.indexOf('\n');
             number = number.replaceAll(number.substring(2, index), ",");
