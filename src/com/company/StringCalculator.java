@@ -1,23 +1,35 @@
 package com.company;
 
-import org.junit.internal.runners.model.ReflectiveCallable;
-
-import java.util.Vector;
-
 public class StringCalculator {
 
-    public static int Add(String number){
-        if(number.trim().length()==0)
-            return 0;
-        if(!number.contains(","))
+    public static int Add(String number) throws Exception {
+        if (number.contains("//")) {
+            int index = number.indexOf('\n');
+            number = number.replaceAll(number.substring(2, index), ",");
+            number = number.substring(4);
+        }
+        if (number.contains("\n")) {
+            number = number.replaceAll("\n", ",");
+        }
+
+        if (number.trim().length() == 0)
+        {return 0;}
+        else if (!number.contains(",")) {
             return Integer.parseInt(number);
+        }
         else {
-            int index =0,sum =0;
-            if(number.contains("//"))
-                index = 4;
-            while(index<=number.length()){
-                sum += Integer.parseInt(String.valueOf(number.charAt( number.indexOf(',',index)+1)));
-                index+=2;
+            int sum = 0;
+            try{
+                String[] arr = number.split(",");
+            for (int i=0;i<=arr.length-1;++i) {
+                if (0 > Integer.parseInt(arr[i])) {
+                    String s = "negatives not allowed " + arr[i];
+                    throw new NumberFormatException(s);
+                }
+                sum += Integer.parseInt(arr[i]);
+            }}
+            catch (NumberFormatException e){
+                System.out.println(e.toString());
             }
             return sum;
         }
