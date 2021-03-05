@@ -77,6 +77,13 @@ public class StringCalculatorTest {
         Assert.assertEquals(6,answer);
     }
     @Test
+    public void AddMultipleDelimiter() throws Exception {
+        StringCalculator strclc = new StringCalculator();
+        String str = "//[abc][cde]\n1abc2cde3";
+        int answer = strclc.Add(str);
+        Assert.assertEquals(6,answer);
+    }
+    @Test
     public void Counter() throws Exception {
         StringCalculator strclc = new StringCalculator();
         strclc.Add("5,4,3,2,1");

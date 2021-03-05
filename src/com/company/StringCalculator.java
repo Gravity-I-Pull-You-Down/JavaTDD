@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Vector;
+
 public class StringCalculator {
     static int count=0;
     public int Add(String number) throws Exception {
@@ -7,9 +10,14 @@ public class StringCalculator {
         int flag =0;
         //Finding Delimiter
         if(number.contains("//[")){
-            String delimiter = number.substring(number.indexOf("[")+1,number.indexOf("]"));
-            number = number.replaceAll(delimiter,",");
-            number = number.substring(5);
+            Vector<String> vec = new Vector<String>();
+            number = number.substring(2);
+            while (number.contains("[")) {
+                vec.addElement(number.substring(number.indexOf("[")+1,number.indexOf("]")));
+                number = number.substring(number.indexOf("]") + 1);
+             }
+            for (int i=0;i< vec.size();++i)
+                number = number.replaceAll(vec.get(i),",");
         }
         //Rest of stuff
         if (number.contains("//")) {
@@ -19,6 +27,7 @@ public class StringCalculator {
         }
         if (number.contains("\n")) {
             number = number.replaceAll("\n", ",");
+            number = number.replaceFirst(",","");
         }
 
         if (number.trim().length() == 0)
@@ -34,12 +43,12 @@ public class StringCalculator {
                     if (0 > Integer.parseInt(arr[i])) {
                         String s = "negatives not allowed " + arr[i];
                         ++flag;
-                        throw new NumberFormatException(s);
+                        throw new NullPointerException(s);
                     }
                     else if(Integer.parseInt(arr[i])<=1000){
                         sum += Integer.parseInt(arr[i]);
                     }
-                }catch (NumberFormatException e){
+                }catch (NullPointerException e){
                     System.out.println(e.toString());
                 }
             }
