@@ -67,7 +67,7 @@ public class StringCalculatorTest {
         StringCalculator strclc = new StringCalculator();
         strclc.Add("5,4,3,2,1");
         int answer = strclc.GetCalledCount();
-        Assert.assertEquals(1,answer);
+        Assert.assertEquals(1,answer); 
     }
 }
 
