@@ -63,10 +63,11 @@ public class StringCalculatorTest {
         Assert.assertEquals(3,answer);
     }
     @Test
-    public void Counter(){
+    public void Counter() throws Exception {
         StringCalculator strclc = new StringCalculator();
-        int answer = strclc.GetCalledCount(); 
-        Assert.assertEquals(8,answer);
+        strclc.Add("5,4,3,2,1");
+        int answer = strclc.GetCalledCount();
+        Assert.assertEquals(1,answer);
     }
 }
 

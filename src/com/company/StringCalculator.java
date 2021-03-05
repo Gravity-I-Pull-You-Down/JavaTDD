@@ -1,7 +1,7 @@
 package com.company;
 
 public class StringCalculator {
-    int count=0;
+    static int count=0;
     public int Add(String number) throws Exception {
         ++count;
         int flag =0;
