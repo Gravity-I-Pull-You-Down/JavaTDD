@@ -91,5 +91,5 @@ public class StringCalculatorTest {
         Assert.assertEquals(1,answer);
     }
 }
-
+ 
 //Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme
