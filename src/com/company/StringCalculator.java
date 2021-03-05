@@ -29,7 +29,9 @@ public class StringCalculator {
                         ++flag;
                         throw new NumberFormatException(s);
                     }
-                    sum += Integer.parseInt(arr[i]);
+                    else if(Integer.parseInt(arr[i])<=1000){
+                        sum += Integer.parseInt(arr[i]);
+                    }
                 }catch (NumberFormatException e){
                     System.out.println(e.toString());
                 }

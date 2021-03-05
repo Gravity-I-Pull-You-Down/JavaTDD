@@ -53,7 +53,7 @@ public class StringCalculatorTest {
         StringCalculator strclc = new StringCalculator();
         String str = "5,4,-3,-2\n1";
         int answer = strclc.Add(str);
-//        Assert.assertEquals(15,answer);
+        Assert.assertEquals(0,answer);
     }
     @Test
     public void Adddelimiter() throws Exception {
@@ -63,11 +63,18 @@ public class StringCalculatorTest {
         Assert.assertEquals(3,answer);
     }
     @Test
+    public void AddMoreThan1000() throws Exception {
+        StringCalculator strclc = new StringCalculator();
+        String str = "5,5,5,2000,1000";
+        int answer = strclc.Add(str);
+        Assert.assertEquals(1015,answer);
+    }
+    @Test
     public void Counter() throws Exception {
         StringCalculator strclc = new StringCalculator();
         strclc.Add("5,4,3,2,1");
         int answer = strclc.GetCalledCount();
-        Assert.assertEquals(1,answer); 
+        Assert.assertEquals(1,answer);
     }
 }
 
