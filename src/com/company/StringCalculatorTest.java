@@ -51,7 +51,7 @@ public class StringCalculatorTest {
     @Test
     public void AddNegative() throws Exception {
         StringCalculator strclc = new StringCalculator();
-        String str = "5,4,3,-2\n1";
+        String str = "5,4,-3,-2\n1";
         int answer = strclc.Add(str);
 //        Assert.assertEquals(15,answer);
     }

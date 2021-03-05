@@ -19,18 +19,19 @@ public class StringCalculator {
         }
         else {
             int sum = 0;
-            try{
-                String[] arr = number.split(",");
+            String[] arr = number.split(",");
             for (int i=0;i<=arr.length-1;++i) {
-                if (0 > Integer.parseInt(arr[i])) {
-                    String s = "negatives not allowed " + arr[i];
-                    throw new NumberFormatException(s);
+                try {
+                    if (0 > Integer.parseInt(arr[i])) {
+                        String s = "negatives not allowed " + arr[i];
+                        throw new NumberFormatException(s);
+                    }
+                    sum += Integer.parseInt(arr[i]);
+                }catch (NumberFormatException e){
+                    System.out.println(e.toString());
                 }
-                sum += Integer.parseInt(arr[i]);
-            }}
-            catch (NumberFormatException e){
-                System.out.println(e.toString());
             }
+
             return sum;
         }
     }
