@@ -65,7 +65,7 @@ public class StringCalculatorTest {
     @Test
     public void Counter(){
         StringCalculator strclc = new StringCalculator();
-        int answer = strclc.GetCalledCount();
+        int answer = strclc.GetCalledCount(); 
         Assert.assertEquals(8,answer);
     }
 }
