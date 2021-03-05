@@ -1,8 +1,10 @@
 package com.company;
 
 public class StringCalculator {
-
-    public static int Add(String number) throws Exception {
+    int count=0;
+    public int Add(String number) throws Exception {
+        ++count;
+        int flag =0;
         if (number.contains("//")) {
             int index = number.indexOf('\n');
             number = number.replaceAll(number.substring(2, index), ",");
@@ -24,6 +26,7 @@ public class StringCalculator {
                 try {
                     if (0 > Integer.parseInt(arr[i])) {
                         String s = "negatives not allowed " + arr[i];
+                        ++flag;
                         throw new NumberFormatException(s);
                     }
                     sum += Integer.parseInt(arr[i]);
@@ -31,8 +34,14 @@ public class StringCalculator {
                     System.out.println(e.toString());
                 }
             }
-
+            if(flag ==0)
             return sum;
+            else
+                return 0;
         }
+    }
+    public int GetCalledCount(){
+//        System.out.println(count);
+        return count;
     }
 }

@@ -62,6 +62,12 @@ public class StringCalculatorTest {
         int answer = strclc.Add(str);
         Assert.assertEquals(3,answer);
     }
+    @Test
+    public void Counter(){
+        StringCalculator strclc = new StringCalculator();
+        int answer = strclc.GetCalledCount();
+        Assert.assertEquals(8,answer);
+    }
 }
 
 //Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme
